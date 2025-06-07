@@ -5,8 +5,6 @@ from ..serializers.booking_serializers import BookingManagementListSerializers, 
 from booking.utilities.pagination import MyPageNumberPagination
 from rest_framework.permissions import IsAuthenticated
 
-from rest_framework import SearchFilter, OrderingFilter
-
 class bookingManagementViewsets(viewsets.ModelViewSet):
     serializer_class = BookingManagementListSerializers
     queryset = BookingManagement.objects.all().order_by('-id')
@@ -14,11 +12,6 @@ class bookingManagementViewsets(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
     lookup_field = 'slug'
-
-    filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ['id', 'full_name', 'slug']
-    ordering_fields = ['id']
-    ordering = ['-id']
 
     def get_queryset(self):
         queryset = super().get_queryset()

@@ -24,7 +24,7 @@ class BookingManagement(models.Model):
     gender = models.CharField(max_length=50, choices=GENDER)
     date = models.DateField(auto_now_add=True)
 
-    service = models.ForeignKey(Service_management, related_name='service',on_delete=models.CASCADE)
+    service = models.ForeignKey(Service_management, related_name='service', on_delete=models.CASCADE)
 
     payment_option = models.CharField(max_length=50, choices=PAYMENT)
     message = models.TextField(blank=True, null=True)

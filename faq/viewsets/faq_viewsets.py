@@ -5,7 +5,7 @@ from ..serializers.faq_serializers import FAQListSerializers, FAQRetrieveSeriali
 from booking.utilities.pagination import MyPageNumberPagination
 from rest_framework.permissions import IsAuthenticated
 
-class bookingManagementViewsets(viewsets.ModelViewSet):
+class faqViewsets(viewsets.ModelViewSet):
     serializer_class = FAQListSerializers
     queryset = FAQ.objects.all().order_by('-id')
     pagination_class = MyPageNumberPagination

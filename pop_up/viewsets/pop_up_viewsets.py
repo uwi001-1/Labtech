@@ -5,7 +5,7 @@ from ..serializers.pop_up_serializers import PopUpListSerializers, PopUpRetrieve
 from booking.utilities.pagination import MyPageNumberPagination
 from rest_framework.permissions import IsAuthenticated
 
-class bookingManagementViewsets(viewsets.ModelViewSet):
+class popUpViewsets(viewsets.ModelViewSet):
     serializer_class = PopUpListSerializers()
     queryset = PopUp.objects.all().order_by('-id')
     pagination_class = MyPageNumberPagination

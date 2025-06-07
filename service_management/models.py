@@ -40,7 +40,3 @@ class Service_management(models.Model):
         if not self.slug:
             self.slug = f'{slugify(self.name)}-{str(self.public_id)[1:5]}{str(self.public_id)[-1:-5]}'
         super().save(*args, **kwargs)
-
-class OtherImage(models.Model):
-    service = models.ForeignKey(Service_management, related_name='other_images', on_delete=models.CASCADE)
-    other_images = models.ImageField(upload_to='other_images/', blank=True, null=True)

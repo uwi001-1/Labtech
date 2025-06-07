@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from ..models import Service_management, OtherImage
+from ..models import Service_management
 from ..serializers.service_serializers import ServiceManagementListSerializer, ServiceManagementRetrieveSerializer
 
 class serviceViewsets(viewsets.ModelViewSet):

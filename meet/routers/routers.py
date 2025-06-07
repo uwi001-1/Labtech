@@ -1,6 +1,6 @@
 from rest_framework.routers import DefaultRouter
-from ..viewsets.meet_viewsets import meetViewsets
+from ..viewsets.meet_viewsets import meetTheTeamViewsets
 
 router = DefaultRouter()
 
-router.register('meet', meetViewsets, basename="meetViewsets")
+router.register('meet', meetTheTeamViewsets, basename="meetViewsets")
