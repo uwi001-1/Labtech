@@ -24,12 +24,12 @@ class BannerTextListSerializers(serializers.ModelSerializer):
             raise serializers.ValidationError("You must provide either an video file or an video URL.")
         
         return data
-class BannerTextRetrieveSerializer(serializers.ModelSerializer):
+class BannerTextRetrieveSerializers(serializers.ModelSerializer):
     class Meta:
         model = BannerText
         fields = '__all__'
 
-class BannerTextWriteSerializer(serializers.ModelSerializer):
+class BannerTextWriteSerializers(serializers.ModelSerializer):
     class Meta:
         model = BannerText
         fields = ['image_file', 'image_url', 'video_file', 'video_url', 'description']

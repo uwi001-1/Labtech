@@ -18,6 +18,12 @@ from django.contrib import admin
 from django.urls import path, include
 
 from rest_framework import routers
+from banner.routers.routers import router as banner_router
+from booking.routers.routers import router as booking_router
+from faq.routers.routers import router as faq_router
+from inquiries.routers.routers import router as inquiries_router
+from meet.routers.routers import router as meet_router
+from pop_up.routers.routers import router as pop_up_router
 from service_management.routers.routers import router as service_router
 
 from rest_framework import permissions
@@ -25,6 +31,12 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi 
 
 router = routers.DefaultRouter()
+router.registry.extend(banner_router.registry)
+router.registry.extend(booking_router.registry)
+router.registry.extend(faq_router.registry)
+router.registry.extend(inquiries_router.registry)
+router.registry.extend(meet_router.registry)
+router.registry.extend(pop_up_router.registry)
 router.registry.extend(service_router.registry)
 
 schema_view = get_schema_view(
