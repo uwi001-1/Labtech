@@ -22,5 +22,5 @@ class BannerTextSerializers(serializers.ModelSerializer):
             raise serializers.ValidationError("Provide either an video file or an video URL, not both.")
         if not v_file and not v_url:
             raise serializers.ValidationError("You must provide either an video file or an video URL.")
+        
         return data
-    

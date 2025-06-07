@@ -18,29 +18,29 @@ class Service_management(models.Model):
         ('platelets', 'Platelets'),
     )
 
-    Name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
     public_id = models.UUIDField(default=uuid.uuid4, editable=False)
     slug = models.SlugField(max_length=255, unique=True)
 
-    Category = models.CharField(max_length= 30, choices= CATEGORY)
-    # Sub-Category = models.CharField(max_length=20, choices=SUB_CATEGORY)
+    category = models.CharField(max_length= 30, choices= CATEGORY)
+    sub_Category = models.CharField(max_length=20, choices=SUB_CATEGORY)
 
-    Price = models.PositiveIntegerField()
-    Description = models.TextField()
+    price = models.PositiveIntegerField()
+    description = models.TextField()
 
-    Feature_images = models.ImageField(upload_to='feature_images/')
+    feature_image = models.ImageField(upload_to='feature_image/')
 
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.name
+    
     def save(self,*args, **kwargs):
         if not self.slug:
             self.slug = f'{slugify(self.name)}-{str(self.public_id)[1:5]}{str(self.public_id)[-1:-5]}'
         super().save(*args, **kwargs)
 
-    def __str__(self):
-        return self.Name
-
 class OtherImage(models.Model):
     service = models.ForeignKey(Service_management, related_name='other_images', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='other_images/', blank=True, null=True)
+    other_images = models.ImageField(upload_to='other_images/', blank=True, null=True)
