@@ -42,6 +42,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'service_management',
     'banner',
+    'booking',
+    'meet',
+    'pop_up',
+    'inquiries',
+    'faq',
 ]
 
 MIDDLEWARE = [

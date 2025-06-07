@@ -22,9 +22,9 @@ class BookingManagement(models.Model):
     phone_number = models.PositiveIntegerField(max_length=10)
     address = models.CharField(max_length=255)
     gender = models.CharField(max_length=50, choices=GENDER)
-    date = models.DateField()
+    date = models.DateField(auto_now_add=True)
 
-    service = models.ManyToManyField(Service_management, on_delete=models.CASCADE ,related_name='service')
+    service = models.ManyToManyField(Service_management, on_delete= models.CASCADE, related_name='service')
 
     payment_option = models.CharField(max_length=50, choices=PAYMENT)
     message = models.TextField(blank=True, null=True)
