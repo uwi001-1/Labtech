@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'pop_up',
     'inquiries',
     'faq',
+    'account',
 ]
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
